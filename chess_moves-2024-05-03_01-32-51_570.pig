@@ -1,24 +1,5 @@
--- Load data and store each column into a variable
-data = LOAD '/data/2016_CvH.csv' USING PigStorage(',') AS (
-    Game: chararray,
-    White: chararray,
-    Black: chararray,
-    White_Elo: int,
-    Black_Elo: int,
-    White_RD: int,
-    Black_RD: int,
-    WhiteIsComp: chararray,
-    BlackIsComp: chararray,
-    TimeControl: chararray,
-    Date: chararray,
-    Time: chararray,
-    White_Clock: chararray,
-    Black_Clock: chararray,
-    ECO: chararray,
-    PlyCount: int,
-    Result: chararray,
-    Result_Winner: chararray,
-    Commentaries: chararray,
+-- Load data and store column into a variable
+data = LOAD '/data/chessmoves.csv' USING PigStorage(',') AS (
     Moves: chararray
 );
 
