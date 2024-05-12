@@ -1,3 +1,4 @@
+-- Load data and store each column into a variable
 data = LOAD '/data/2016_CvH.csv' USING PigStorage(',') AS (
     Game: chararray,
     White: chararray,
@@ -21,7 +22,8 @@ data = LOAD '/data/2016_CvH.csv' USING PigStorage(',') AS (
     Moves: chararray
 );
 
--- Extract all first moves
+-- Extract all first moves by string splitting the 'moves' variable to only 
+-- extract the first move mentioned in each row
 first_moves = FOREACH data GENERATE FLATTEN(STRSPLIT(Moves, ' ', 3).$1) AS first_move;
 
 -- Group the first moves
